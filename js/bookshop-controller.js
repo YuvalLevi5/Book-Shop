@@ -107,6 +107,8 @@ function onNewBook(ev) {
 }
 
 function onNextPage() {
+    var books = getAllBooks()
+    if (books.length <= 4) return
     nextPage()
     renderTable()
     onSetLang(getCurrLang())

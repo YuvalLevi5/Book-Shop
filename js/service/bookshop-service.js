@@ -30,7 +30,7 @@ function getBooks() {
     }
 
     const startIdx = gPageIdx * PAGE_SIZE
-        // console.log('startIdx: ', startIdx)
+    console.log('startIdx: ', startIdx)
     books = books.slice(startIdx, startIdx + PAGE_SIZE)
 
     return books
@@ -46,7 +46,8 @@ function getCurrPage() {
 }
 
 function nextPage() {
-    if ((gPageIdx * PAGE_SIZE + gPageIdx) >= gBooks.length) {
+
+    if ((gPageIdx * PAGE_SIZE + PAGE_SIZE) >= gBooks.length) {
         return false
     }
     gPageIdx++
@@ -166,4 +167,8 @@ function getRandomIntInclusive(min, max) {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive 
+}
+
+function getAllBooks() {
+    return gBooks
 }
