@@ -30,7 +30,7 @@ function getBooks() {
     }
 
     const startIdx = gPageIdx * PAGE_SIZE
-    console.log('startIdx: ', startIdx)
+        // console.log('startIdx: ', startIdx)
     books = books.slice(startIdx, startIdx + PAGE_SIZE)
 
     return books
@@ -46,7 +46,6 @@ function getCurrPage() {
 }
 
 function nextPage() {
-
     if ((gPageIdx * PAGE_SIZE + PAGE_SIZE) >= gBooks.length) {
         return false
     }

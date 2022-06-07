@@ -99,6 +99,9 @@ function onNewBook(ev) {
     const bookName = elName.value
     const elPrice = document.querySelector('[name=price]')
     const bookPrice = elPrice.value
+
+    if (!bookName || isNaN(bookPrice)) return
+
     addBook(bookName, bookPrice)
     renderTable()
 
