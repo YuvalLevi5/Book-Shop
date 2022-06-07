@@ -1,0 +1,29 @@
+        * {
+            box-sizing: border-box;
+        }
+        
+        body.rtl {
+            direction: rtl;
+        }
+        
+        body {
+            margin: auto;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .my-filters {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+        
+        .my-modal {
+            border-radius: 20%;
+            height: 60vh;
+            min-width: 300px;
+            text-align: center;
+            display: none;
+        }

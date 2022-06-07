@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bookshop.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body class="p-3 mb-2 bg-light text-dark" onload="init()">
+
+    <h1 class="display-4" data-trans="header">My Book Shop</h1>
+
+    <div class="my-filters">
+        <section class="book-filter p-3">
+            <select class="form-select" aria-label="Default select example" onchange="onSetLang(this.value)">
+            <option value="">Select language</option>
+            <option value="en">English</option>
+            <option value="he">עברית</option>
+            <option value="es">Spanish</option>
+        </select>
+        </section>
+
+        <section class="book-filter p-3">
+            <select class="form-select" aria-label="Default select example" onchange="onSetFilterBy(this.value)">
+                <option data-trans="select-filter" value="">Select Filter</option>
+                <option data-trans="select-filter-rate" value="rate">By Rate</option>
+                <option data-trans="select-filter-price" value="price">By Price</option>
+                <option value="cheap">0-50</option>
+                <option value="expen">50+</option>
+            </select>
+        </section>
+    </div>
+
+    <form onsubmit="onNewBook(event)" class="p-3">
+        <input type="text" name="bookname" placeholder="Enter Book Name" class="form-control" data-trans="add-book-placeholder-name" /> <br>
+        <input type="text" name="price" placeholder="Enter Book Price" class="form-control" data-trans="add-book-placeholder-price" /> <br>
+        <button class="btn btn-dark" data-trans="create-book">Create new book 📖</button>
+    </form>
+
+
+
+    <div>
+        <button class="prev btn btn-outline-primary" data-trans="prev" onclick="onPrevPage()">⬅️</button>
+        <button class="next btn btn-outline-primary" data-trans="next" onclick="onNextPage()">➡️</button>
+    </div>
+    <br>
+
+    <div class="books-container text-center">
+        <table class="table table-dark table-striped">
+            <thead>
+                <th data-trans="id">Id</th>
+                <th data-trans="title">Title</th>
+                <th data-trans="price">Price</th>
+                <th data-trans="action" colspan="3">Actions</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="my-modal position-absolute top-50 start-50 translate-middle p-3 mb-2 bg-secondary text-white bg-opacity-85">
+        <h4></h4>
+        <h5 data-trans="book-description">Book Description</h5>
+        <p></p>
+
+        <div class="btn-group p-3" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success" onclick="plusBtn()">+</button>
+            <button type="button" class="btn btn-warning"><span class="rating ">0</span></button>
+            <button type="button" class="btn btn-danger" onclick="minusBtn()">-</button>
+        </div>
+        <br>
+        <button class="btn btn-light" onclick="closeModal() ">Close</button>
+    </div>
+
+
+    <script src="js/service/bookshop-storage.service.js "></script>
+    <script src="js/service/bookshop-i18n.service.js "></script>
+    <script src="js/service/bookshop-service.js "></script>
+    <script src="js/bookshop-controller.js "></script>
+</body>
+
+</html>
